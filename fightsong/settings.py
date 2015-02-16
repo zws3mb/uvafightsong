@@ -56,18 +56,22 @@ WSGI_APPLICATION = 'fightsong.wsgi.application'
 
 # Database
 # https://docs.djangoproject.com/en/1.7/ref/settings/#databases
-
+#
 DATABASES = {
       'default': {
-        'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'heroku_example', # CREATE DATABASE heroku_example CHARACTER SET utf8 COLLATE utf8_general_ci;
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'NAME': 'fightsong', # CREATE DATABASE heroku_example CHARACTER SET utf8 COLLATE utf8_general_ci;
         'USER': 'root',
         'PASSWORD': 'root',
-        'HOST': '127.0.0.1',
-        'PORT': '3306',
+        'HOST': 'localhost',
+        'PORT': '5432',
     }
 }
-
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.postgresql_psycopg2',
+#     }
+# }
 # Internationalization
 # https://docs.djangoproject.com/en/1.7/topics/i18n/
 
@@ -96,3 +100,7 @@ EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_PORT = 587
 EMAIL_HOST_USER = 'uvafightsong@gmail.com'
 EMAIL_HOST_PASSWORD = 'alxsaddtuecclrks'
+
+# # Allow all host hosts/domain names for this site
+# ALLOWED_HOSTS = ['*']
+
