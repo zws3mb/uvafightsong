@@ -101,7 +101,7 @@ def submit(request):
             from django.core.mail import send_mail,EmailMessage
             try:
                 mail = EmailMessage('Submission:'+str(request.POST['title']), str(request.POST['text_description']),
-                                    'UVaFightSong.com', [request.user.email])
+                                    'UVaFightSong.com', ['fightsong@virginia.edu'])
                 mail.attach(mp3.name,mp3.read())
                 mail.attach(lyrics.name,lyrics.read())
                 mail.send(fail_silently=False)
