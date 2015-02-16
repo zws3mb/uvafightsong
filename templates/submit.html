@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+
+{% extends "base.html" %}
+
+{% block content %}
+
+{% if user.is_authenticated %}
+
+
+<div class="row">
+    <div class="col-md-6 col-md-offset-1">
+        <!-- Upload form. Note enctype attribute! -->
+        <h1>Make a new submission</h1>
+        <p>*All fields must be filled.</p>
+         <form id="submission_form" method="post" action="/submit" accept-charset=""
+                enctype="multipart/form-data">
+             {{ form.errors }}
+            {{ form.non_field_errors }}
+             {% csrf_token %}
+             {{form.as_p}}
+             <button type="submit" class="btn btn-default" name="submit">Submit!</button>
+             </form>
+    </div>
+</div>
+<div class="row">
+    <br>
+    <br>
+</div>
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+<!--<script>-->
+    <!--$('#add-another').click(function() {-->
+        <!--var form_idx = $('#id_form-TOTAL_FORMS').val();-->
+        <!--$('#form_set').append($('#empty_form').html().replace(/__prefix__/g, form_idx));-->
+        <!--$('#id_form-TOTAL_FORMS').val(parseInt(form_idx) + 1);-->
+    <!--});-->
+<!--</script>-->
+
+
+{% else %}
+	<h2> Please <a href="login">log in.</a> </h2>
+{% endif %}
+
+
+{% endblock %}
