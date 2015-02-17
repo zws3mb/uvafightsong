@@ -58,7 +58,7 @@ def register(request):
 
         else:
             print user_form.errors
-
+        return HttpResponseRedirect('/login')
     else:
         user_form = UserForm()
 
